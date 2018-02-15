@@ -216,7 +216,8 @@ function sudo_add() {
 function patch_system_files() {
     # add symlink to prevent wpa_cli cmds from breaking with multiple wlan interfaces
     install_log "symlinked wpa_supplicant hooks for multiple wlan interfaces"
-    sudo ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /etc/dhcp/dhclient-enter-hooks.d/ || install_log "It's okay if this errors, if it is not a fresh install. symlink already exists"
+    sudo ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /etc/dhcp/dhclient-enter-hooks.d/ 
+    install_log "It's okay if this errors, if not a fresh install. Symlink already exists"
     
     # Set commands array
     cmds=(
