@@ -220,27 +220,27 @@ function patch_system_files() {
         
     # Set commands array
     cmds=(
-        '/sbin/ifdown\ wlan0'
-        '/sbin/ifup wlan0'
-        '/bin/cat /etc/wpa_supplicant/wpa_supplicant.conf'
-        '/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf'
-        '/sbin/wpa_cli scan_results'
-        '/sbin/wpa_cli scan'
-        '/sbin/wpa_cli reconfigure'
-        '/bin/cp /tmp/hostapddata /etc/hostapd/hostapd.conf'
-        '/etc/init.d/hostapd start'
-        '/etc/init.d/hostapd stop'
-        '/etc/init.d/dnsmasq start'
-        '/etc/init.d/dnsmasq stop'
-        '/bin/cp /tmp/dhcpddata /etc/dnsmasq.conf'
-        '/sbin/shutdown -h now'
-        '/sbin/reboot'
-        '/sbin/ip link set wlan0 down'
-        '/sbin/ip link set wlan0 up'
-        '/sbin/ip -s a f label wlan0'
-        '/bin/cp /etc/raspap/networking/dhcpcd.conf /etc/dhcpcd.conf'
-        '/etc/raspap/hostapd/enablelog.sh'
-        '/etc/raspap/hostapd/disablelog.sh'
+        "/sbin/ifdown wlan0"
+        "/sbin/ifup wlan0"
+        "/bin/cat /etc/wpa_supplicant/wpa_supplicant.conf"
+        "/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf"
+        "/sbin/wpa_cli scan_results"
+        "/sbin/wpa_cli scan"
+        "/sbin/wpa_cli reconfigure"
+        "/bin/cp /tmp/hostapddata /etc/hostapd/hostapd.conf"
+        "/etc/init.d/hostapd start"
+        "/etc/init.d/hostapd stop"
+        "/etc/init.d/dnsmasq start"
+        "/etc/init.d/dnsmasq stop"
+        "/bin/cp /tmp/dhcpddata /etc/dnsmasq.conf"
+        "/sbin/shutdown -h now"
+        "/sbin/reboot"
+        "/sbin/ip link set wlan0 down"
+        "/sbin/ip link set wlan0 up"
+        "/sbin/ip -s a f label wlan0"
+        "/bin/cp /etc/raspap/networking/dhcpcd.conf /etc/dhcpcd.conf"
+        "/etc/raspap/hostapd/enablelog.sh"
+        "/etc/raspap/hostapd/disablelog.sh"
     )
 
     # Check if sudoers needs patchin
