@@ -220,7 +220,7 @@ function patch_system_files() {
         
     # Set commands array
     cmds=(
-        '/sbin/ifdown\wlan0'
+        '/sbin/ifdown\ wlan0'
         '/sbin/ifup wlan0'
         '/bin/cat /etc/wpa_supplicant/wpa_supplicant.conf'
         '/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf'
