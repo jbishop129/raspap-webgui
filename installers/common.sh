@@ -220,10 +220,14 @@ function patch_system_files() {
         
     # Set commands array
     cmds=(
-        "/sbin/ifdown wlan0"
-        "/sbin/ifup wlan0"
+        "/sbin/ifdown"
+        "/sbin/ifup"
         "/bin/cat /etc/wpa_supplicant/wpa_supplicant.conf"
+        "/bin/cat /etc/wpa_supplicant/wpa_supplicant-wlan0.conf"
+        "/bin/cat /etc/wpa_supplicant/wpa_supplicant-wlan1.conf"
         "/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf"
+        "/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant-wlan0.conf"
+        "/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant-wlan1.conf"
         "/sbin/wpa_cli scan_results"
         "/sbin/wpa_cli scan"
         "/sbin/wpa_cli reconfigure"
@@ -238,13 +242,16 @@ function patch_system_files() {
         "/sbin/ip link set wlan0 down"
         "/sbin/ip link set wlan0 up"
         "/sbin/ip -s a f label wlan0"
+        "/sbin/ip link set wlan1 down"
+        "/sbin/ip link set wlan1 up"
+        "/sbin/ip -s a f label wlan1"
         "/bin/cp /etc/raspap/networking/dhcpcd.conf /etc/dhcpcd.conf"
         "/etc/raspap/hostapd/enablelog.sh"
         "/etc/raspap/hostapd/disablelog.sh"
     )
 
     # Check if sudoers needs patchin
-    if [ $(sudo grep -c www-data /etc/sudoers) -ne 15 ]
+    if [ $(sudo grep -c www-data /etc/sudoers) -ne 28 ]
     then
         # Sudoers file has incorrect number of commands. Wiping them out.
         install_log "Cleaning sudoers file"
