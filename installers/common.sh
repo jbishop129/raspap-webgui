@@ -244,13 +244,16 @@ function patch_system_files() {
     )
 
     # Check if sudoers needs patchin
-    if [ $(sudo grep -c www-data /etc/sudoers) -ne 15 ]; then
+    if [ $(sudo grep -c www-data /etc/sudoers) -ne 15 ]
+    then
         # Sudoers file has incorrect number of commands. Wiping them out.
         install_log "Cleaning sudoers file"
         sudo sed -i '/www-data/d' /etc/sudoers
         install_log "Patching system sudoers file"
         # patch /etc/sudoers file
-        for cmd in "${cmds[@]}"; do
+        for cmd in "${cmds[@]}"
+        do
+            IFS=$'\n'
             sudo_add $cmd
         done
     else
